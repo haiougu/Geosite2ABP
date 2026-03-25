@@ -35,7 +35,7 @@ jobs:
       - name: Run script to generate test.txt
         run: |
           python geosite2abp.py gfw,greatfire,google,openai,bilibili,bytedance,iqiyi,youku -o test.txt
-          base64 test.txt test64.txt
+          base64 test.txt > test64.txt
 
       # 4. 检查文件是否有变动，并提交
       - name: Commit and push if changed
