@@ -34,7 +34,7 @@ jobs:
       # 假设你的脚本在仓库根目录
       - name: Run script to generate test.txt
         run: |
-          python geosite2abp.py gfw,greatfire,google,microsoft,openai,category-scholar-!cn,category-scholar-cn -o test.txt
+          python geosite2abp.py gfw,greatfire,google,openai,bilibili,bytedance,iqiyi,youku -o test.txt
 
       # 4. 检查文件是否有变动，并提交
       - name: Commit and push if changed
