@@ -55,3 +55,15 @@ jobs:
           else
             echo "test.txt is already up-to-date."
           fi
+          
+          # 检查 test64.txt 文件是否有变动
+          # git status --porcelain 会在有变动时输出信息，否则为空
+          if [ -n "$(git status --porcelain test64.txt)" ]; then
+            git add test64.txt
+            # [skip ci] 是一个标准做法，防止这次 push 再次触发 CI/CD (如果也设置了 on: push)
+            git commit -m "chore(rules): Auto-update test64.txt [skip ci]"
+            git push
+            echo "test64.txt was updated and pushed."
+          else
+            echo "test64.txt is already up-to-date."
+          fi
